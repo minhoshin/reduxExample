@@ -1,17 +1,17 @@
 import React, { Component, PropTypes } from 'react'
 
 const propTypes = {
-    onPlus: PropTypes.func,
-    onSubtract: PropTypes.func
+    // onPlus: PropTypes.func,
+    // onSubtract: PropTypes.func
 }
 
 function createWarning(funcName) {
-    return () => console.warn(funcName + ' is not defined')
+    // return () => console.warn(funcName + ' is not defined')
 }
 
 const defaultProps = {
-    onPlus: createWarning('onPlus'),
-    onSubtract: createWarning('onSubtract')
+    // onPlus: createWarning('onPlus'),
+    // onSubtract: createWarning('onSubtract')
 }
 
 class Control extends Component {

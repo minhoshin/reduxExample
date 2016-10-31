@@ -7,6 +7,21 @@ import { connect } from 'react-redux';
 
 import * as actions from '../actions';
 
+const mapStateToProps = (state) => {
+    return {
+        number: state.counter.number,
+        name: state.counter.name
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    //return bindActionCreators(actions, dispatch);
+    return {
+        handleIncrement: () => { dispatch(actions.increment())},
+        handleDecrement: () => { dispatch(actions.decrement())}
+    };
+};
+
 class Counter extends Component {
 
     constructor(props) {
@@ -18,6 +33,7 @@ class Counter extends Component {
         return(
             <div>
                 <Value number={this.props.number}/>
+                {this.props.name}
                 <Control
                     onPlus={this.props.handleIncrement}
                     onSubtract={this.props.handleDecrement}
@@ -26,20 +42,6 @@ class Counter extends Component {
         );
     }
 }
-
-const mapStateToProps = (state) => {
-    return {
-        number: state.counter.number
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    //return bindActionCreators(actions, dispatch);
-    return {
-        handleIncrement: () => { dispatch(actions.increment())},
-        handleDecrement: () => { dispatch(actions.decrement())}
-    };
-};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
